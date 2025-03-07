@@ -15,7 +15,6 @@ function ChatApp({ user }) {
     return () => unsubscribe();
   }, []);
 
-
   const sendMessage = async () => {
     if (input.trim() !== "") {
       await addDoc(collection(db, "messages"), {
