@@ -6,6 +6,7 @@ import {
   signOut 
 } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
+import './Auth.css'
 
 function Auth({ user, setUser }) { 
   const [email, setEmail] = useState("");
@@ -43,7 +44,7 @@ function Auth({ user, setUser }) {
   };
 
   return (
-    <div style={{ textAlign: "center", padding: "0%"}}>
+    <div style={{ textAlign: "center", padding: "0%", paddingBottom:"20%"}}>
       {user ? (
         <div>
           <h2>Welcome, {user?.email}</h2>
@@ -51,8 +52,8 @@ function Auth({ user, setUser }) {
           <button onClick={handleLogout}>Logout</button>
         </div>
       ) : (
-        <div>
-          <h2>{isLogin ? "Lets Learn Together" : "Sign Up"}</h2>
+        <div style={{backgroundColor:"white",paddingTop:"15%",paddingBottom:"12%",borderRadius:"10%", maxWidth:"90%",margin: "auto"}}> 
+          <h2 style={{color:"black"}}>{isLogin ? "Lets Learn Together" : "Sign Up"}</h2>
           
           <input 
             type="email" 
@@ -60,7 +61,7 @@ function Auth({ user, setUser }) {
             value={email} 
             onChange={(e) => setEmail(e.target.value)} 
             disabled={loading}
-            style={{ fontSize: "18px", padding: "10px", width: "50%" }}
+            style={{ fontSize: "18px", padding: "10px", width: "50%"}}
           />
           
           <input  
@@ -73,11 +74,11 @@ function Auth({ user, setUser }) {
           />
           
           <div style={{ textAlign: "center", padding: "0%",paddingTop:"5%",tabSize:"100%"}}>
-            <button onClick={handleAuth} disabled={loading}>
+            <button onClick={handleAuth} disabled={loading} className={error ? "shake" : ""}>
               {loading ? "Processing..." : isLogin ? "Login" : "Sign Up"}
             </button>
           </div>
-          <p onClick={() => setIsLogin(!isLogin)} style={{ cursor: "pointer", color: "lightblue" }}>
+          <p onClick={() => setIsLogin(!isLogin)} style={{ cursor: "pointer", color: "blue" }}>
             {isLogin ? "Create an account" : "Already have an account? Login"}
           </p>
         </div>
