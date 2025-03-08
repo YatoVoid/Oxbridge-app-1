@@ -8,10 +8,8 @@ function App() {
   
   return (
     <div>
-      
-
       <Auth setUser={setUser} />
-      {user ? <ChatApp user={user} /> : <h2 style={{ textAlign: "center" }}>Please log in to chat</h2>}
+      {user ? <ChatApp user={user} /> : <h2 style={{ textAlign: "center" }}></h2>}
     </div>
   );
 }

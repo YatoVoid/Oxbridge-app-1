@@ -43,7 +43,7 @@ function Auth({ user, setUser }) {
   };
 
   return (
-    <div style={{ textAlign: "center", padding: "20px" }}>
+    <div style={{ textAlign: "center", padding: "0%"}}>
       {user ? (
         <div>
           <h2>Welcome, {user?.email}</h2>
@@ -52,26 +52,32 @@ function Auth({ user, setUser }) {
         </div>
       ) : (
         <div>
-          <h2>{isLogin ? "Login" : "Sign Up"}</h2>
-          {error && <p style={{ color: "red" }}>{error}</p>}
+          <h2>{isLogin ? "Lets Learn Together" : "Sign Up"}</h2>
+          
           <input 
             type="email" 
             placeholder="Email" 
             value={email} 
             onChange={(e) => setEmail(e.target.value)} 
             disabled={loading}
+            style={{ fontSize: "18px", padding: "10px", width: "50%" }}
           />
-          <input 
+          
+          <input  
             type="password" 
             placeholder="Password" 
             value={password} 
             onChange={(e) => setPassword(e.target.value)} 
             disabled={loading}
+            style={{ fontSize: "18px", padding: "10px", width: "50%"}}
           />
-          <button onClick={handleAuth} disabled={loading}>
-            {loading ? "Processing..." : isLogin ? "Login" : "Sign Up"}
-          </button>
-          <p onClick={() => setIsLogin(!isLogin)} style={{ cursor: "pointer", color: "blue" }}>
+          
+          <div style={{ textAlign: "center", padding: "0%",paddingTop:"5%",tabSize:"100%"}}>
+            <button onClick={handleAuth} disabled={loading}>
+              {loading ? "Processing..." : isLogin ? "Login" : "Sign Up"}
+            </button>
+          </div>
+          <p onClick={() => setIsLogin(!isLogin)} style={{ cursor: "pointer", color: "lightblue" }}>
             {isLogin ? "Create an account" : "Already have an account? Login"}
           </p>
         </div>
