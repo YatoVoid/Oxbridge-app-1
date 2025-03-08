@@ -24,9 +24,9 @@ function Auth({ user, setUser }) {
       
       const loggedInUser = userCredential.user;
       
-      // Fetch user role from Firestore
+      
       const userDoc = await getDoc(doc(db, "users", loggedInUser.uid));
-      const role = userDoc.exists() ? userDoc.data().role : "user"; // Default to 'user'
+      const role = userDoc.exists() ? userDoc.data().role : "user"; 
       
       setUser({ ...loggedInUser, displayName: email.split("@")[0], role });
       setEmail("");
