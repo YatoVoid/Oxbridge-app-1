@@ -7,6 +7,8 @@ import {
 } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import './Auth.css'
+import { useNavigate } from "react-router-dom";
+
 
 function Auth({ user, setUser }) { 
   const [email, setEmail] = useState("");
@@ -14,6 +16,10 @@ function Auth({ user, setUser }) {
   const [isLogin, setIsLogin] = useState(true);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
+  const navigate = useNavigate(); 
+
+
 
   const handleAuth = async () => {
     setLoading(true);
@@ -32,6 +38,8 @@ function Auth({ user, setUser }) {
       setUser({ ...loggedInUser, displayName: email.split("@")[0], role });
       setEmail("");
       setPassword("");
+      
+      
     } catch (error) {
       setError(error.message);
     }
