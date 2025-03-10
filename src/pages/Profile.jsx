@@ -8,18 +8,18 @@ function Profile({ user, setUser }) {
 
   const handleLogout = async () => {
     try {
-      await signOut(auth); // Sign out from Firebase
-      setUser(null); // Clear the user state in your app
-      navigate("/"); // Navigate to the homepage
+      await signOut(auth); 
+      setUser(null); 
+      navigate("/"); 
     } catch (error) {
-      console.error("Error logging out:", error); // Handle logout error
+      console.error("Error logging out:", error); 
     }
   };
 
   return (
     <div>
       <h1>Profile Picture</h1>
-      <h1>{user?.displayName || "Name Surname"}</h1> {/* Display user's name if available */}
+      <h1>{user?.displayName || "Name Surname"}</h1> 
       <h1>Level/Experience Bar</h1>
       
       <button onClick={handleLogout}>Logout</button>

@@ -105,10 +105,9 @@ const handleLogout = async () => {
 };
 
 
-  
 
   return (
-    <div style={{ textAlign: "center", padding: "0%", paddingBottom: "20%" }}>
+    <div style={{ textAlign: "center",paddingLeft:"35%",paddingRight:"35%",paddingTop:"10%"}}>
       {user ? (
         <div>
           <h2>Welcome, {user?.email}</h2>
