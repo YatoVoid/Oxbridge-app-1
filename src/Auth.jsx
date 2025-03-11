@@ -81,7 +81,7 @@ const handleLogout = async () => {
     await signOut(auth);
 
     
-    await setPersistence(auth, browserSessionPersistence);
+    // await setPersistence(auth, browserSessionPersistence);
 
    
     localStorage.setItem("rememberMe", "false");  
@@ -89,10 +89,10 @@ const handleLogout = async () => {
     sessionStorage.clear();
 
     
-    document.cookie.split(";").forEach((c) => { 
-      document.cookie = c.replace(/^ +/, "")
-                         .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
-    });
+    // document.cookie.split(";").forEach((c) => { 
+    //   document.cookie = c.replace(/^ +/, "")
+    //                      .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+    // });
 
 
     setUser(null);
@@ -107,7 +107,7 @@ const handleLogout = async () => {
 
 
   return (
-    <div style={{ textAlign: "center",paddingLeft:"35%",paddingRight:"35%",paddingTop:"10%"}}>
+    <div class="auth-box">
       {user ? (
         <div>
           <h2>Welcome, {user?.email}</h2>
