@@ -6,10 +6,11 @@ import {
   HiUser,
   HiTable,
   HiInbox,
-  HiLogout
+  HiLogout,
 } from "react-icons/hi";
 
 import "../style/SideBar.css"; 
+import { HiOutlineChevronUp } from "react-icons/hi";
 
 
 import { useState, useEffect } from "react";
@@ -109,8 +110,11 @@ function Sidebar({ user , setUser}) {
       </div>
 
      
-      <div className="mobile-bottom-button" onClick={toggleMenu}>
-        <HiOutlineMenuAlt3 className="menu-icon" />
+      <div className={`mobile-bottom-button ${menuOpen ? "open" : ""}`} onClick={toggleMenu}>
+        <div className="menu-icon-wrapper">
+          <HiOutlineMenuAlt3 className="menu-icon" />
+          <HiOutlineChevronUp className="arrow-icon" />
+        </div>
       </div>
 
    
