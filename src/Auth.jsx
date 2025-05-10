@@ -78,23 +78,23 @@ const handleAuth = async () => {
 
 const handleLogout = async () => {
   try {
-    await signOut(auth);  // Sign out from Firebase
+    await signOut(auth);
 
-    // 🔹 Reset persistence to session-based after logging out
-    await setPersistence(auth, browserSessionPersistence);
+    
+    // await setPersistence(auth, browserSessionPersistence);
 
-    // 🔹 Explicitly set rememberMe to false & remove user data
-    localStorage.setItem("rememberMe", "false");  // Ensure it's updated
+   
+    localStorage.setItem("rememberMe", "false");  
     localStorage.removeItem("user"); 
     sessionStorage.clear();
 
-    // 🔹 Clear cookies (force logout)
-    document.cookie.split(";").forEach((c) => { 
-      document.cookie = c.replace(/^ +/, "")
-                         .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
-    });
+    
+    // document.cookie.split(";").forEach((c) => { 
+    //   document.cookie = c.replace(/^ +/, "")
+    //                      .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+    // });
 
-    // 🔹 Update state & reload the page to apply changes
+
     setUser(null);
     navigate("/");
     window.location.reload();
@@ -105,10 +105,9 @@ const handleLogout = async () => {
 };
 
 
-  
 
   return (
-    <div style={{ textAlign: "center", padding: "0%", paddingBottom: "20%" }}>
+    <div class="auth-box">
       {user ? (
         <div>
           <h2>Welcome, {user?.email}</h2>

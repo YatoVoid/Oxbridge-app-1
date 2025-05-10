@@ -11,3 +11,47 @@
     animation: shake 0.3s ease-in-out;
   }
   
+
+
+.auth-box{
+  text-align: center;
+  position: fixed;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  
+  font-size: 20px;
+ 
+  padding: 5px;
+  z-index: 100;
+}
+
+
+
+/* MOBILE ONLY */
+@media (max-width: 768px) {
+  .auth-box{
+    text-align: center;
+    position: fixed;
+    left: 50%;
+    min-width: 80%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    
+    font-size: 15px;
+
+    
+    padding: 5px;
+    z-index: 100;
+  }
+
+
+
+}
